@@ -14,4 +14,10 @@ def home(request):
 
 
 def prices(request):
-    return render(request, 'prices.html', {})
+    if request.method == 'POST':
+        quote= request.POST['quote']
+        return render(request, 'home.html', {'quote':quote})
+
+
+    else:
+        return render(request, 'prices.html', {})
